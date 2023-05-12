@@ -1,20 +1,17 @@
 import { Typography, Box } from "@mui/material";
 
-const Header = ({ title, subtitle }) => {
+const SubHeader = ({ title }) => {
     return (
         <Box mb="20px">
             <Typography
-                variant="h2"
-                color={"#F4CE14"}
+                variant="h4"
+                color={"#333333"}
                 // sx={{ m: "0 0 5px 0" }}
             >
                 {title}
-            </Typography>
-            <Typography variant="h5" color={"#EDEFEE"}>
-                {subtitle}
             </Typography>
         </Box>
     );
 };
 
-export default Header;
+export default SubHeader;

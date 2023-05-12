@@ -12,6 +12,27 @@ code {
     monospace;
 }
 
+.font-link {
+  font-family: 'Markanzi';
+  font-family: 'Karla';
+}
+
+h2 {
+  font-family: Markanzi;
+}
+
+h4 {
+  font-family: Markanzi;
+}
+
+h5 {
+  font-family: Karla;
+}
+
+p {
+  font-family: Karla;
+}
+
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
