@@ -9,13 +9,13 @@ const Hero = () => {
         <article>
             <Box
                 display="grid"
-                gridTemplateColumns="repeat(12, 1fr)"
+                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }} // Update this line
                 gridAutoRows="360px"
                 alignItems="top"
                 sx={{
                     paddingTop: "20px",
-                    paddingLeft: "300px",
-                    paddingRight: "300px",
+                    paddingLeft: { xs: "0px", md: "300px" },
+                    paddingRight: { xs: "0px", md: "300px" },
                     backgroundColor: "#495E57"
                 }}
             >

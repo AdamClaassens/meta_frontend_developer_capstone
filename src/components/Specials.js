@@ -12,12 +12,12 @@ const Specials = () => {
         <article>
             <Box
                 display="grid"
-                gridTemplateColumns="repeat(12, 1fr)"
+                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }} // Update this line
                 alignItems="top"
                 sx={{
                     paddingTop: "20px",
-                    paddingLeft: "300px",
-                    paddingRight: "300px",
+                    paddingLeft: { xs: "0px", md: "300px" },
+                    paddingRight: { xs: "0px", md: "300px" },
                 }}
             >
                 <Box
@@ -51,14 +51,14 @@ const Specials = () => {
 
             <Box
                 display="grid"
-                gridTemplateColumns="repeat(12, 1fr)"
+                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }} // Update this line
                 alignItems="top"
                 gap="20px"
                 mb="20px"
                 sx={{
                     paddingTop: "20px",
-                    paddingLeft: "300px",
-                    paddingRight: "300px",
+                    paddingLeft: { xs: "0px", md: "300px" },
+                    paddingRight: { xs: "0px", md: "300px" },
                 }}
             >
                 {/* Special Item 1 */}
