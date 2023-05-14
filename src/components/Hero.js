@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {Box, Button, Typography} from "@mui/material";
-import restauranfood from "../assets/restauranfood.jpg"
+import restaurant from "../assets/restaurant.jpg"
 
 const Hero = () => {
 
@@ -49,13 +49,12 @@ const Hero = () => {
                     </Box>
                 </Box>
 
-                <Box gridColumn="span 2"></Box>
 
                 <Box
                     gridColumn="span 2"
                     mb="30px"
                 >
-                    <img src={restauranfood} width="220px"/>
+                    <img src={restaurant} width="500px"/>
                 </Box>
             </Box>
         </article>

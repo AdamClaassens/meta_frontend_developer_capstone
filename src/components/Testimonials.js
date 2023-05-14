@@ -29,7 +29,7 @@ const Testimonials = () => {
                     paddingTop: "20px",
                     paddingLeft: {xs: "0px", md: "300px"},
                     paddingRight: {xs: "0px", md: "300px"},
-                    textAlign: "center"
+                    textAlign: "center",
                 }}
             >
                 <Box
