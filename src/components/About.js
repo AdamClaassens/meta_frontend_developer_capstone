@@ -11,7 +11,7 @@ const About = () => {
         <article>
             <Box
                 display="grid"
-                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}} // Update this line
+                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}}
                 gridAutoRows="385px"
                 alignItems="top"
                 sx={{
@@ -42,11 +42,13 @@ const About = () => {
                 >
                     {/* Bottom Image*/}
                     <img
+                        className="stackedImage"
                         src={marioAdrianA}
                         width="440px"
                     />
                     {/* Top Image*/}
                     <img
+                        className="stackedImage"
                         src={marioAdrianB}
                         width="440px"
                         style={{

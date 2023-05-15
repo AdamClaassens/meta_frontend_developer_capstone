@@ -24,7 +24,7 @@ const Testimonials = () => {
         <article>
             <Box
                 display="grid"
-                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(1, 1fr)"}} // Update this line
+                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(1, 1fr)"}}
                 sx={{
                     paddingTop: "20px",
                     paddingLeft: {xs: "0px", md: "300px"},
@@ -42,7 +42,7 @@ const Testimonials = () => {
 
             <Box
                 display="grid"
-                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}} // Update this line
+                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}}
                 alignItems="top"
                 gap="20px"
                 mb="20px"

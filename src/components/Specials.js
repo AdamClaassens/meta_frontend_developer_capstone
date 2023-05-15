@@ -12,7 +12,7 @@ const Specials = () => {
         <article>
             <Box
                 display="grid"
-                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }} // Update this line
+                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }}
                 alignItems="top"
                 sx={{
                     paddingTop: "20px",
@@ -51,7 +51,7 @@ const Specials = () => {
 
             <Box
                 display="grid"
-                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }} // Update this line
+                gridTemplateColumns={{ xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)" }}
                 alignItems="top"
                 gap="20px"
                 mb="20px"

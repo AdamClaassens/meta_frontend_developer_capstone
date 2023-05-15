@@ -11,7 +11,7 @@ const Footer = () => {
         {name: 'Home', path: '/'},
         {name: 'About', path: '/about'},
         {name: 'Menu', path: '/menu'},
-        {name: 'Reservations', path: '/reservations'},
+        {name: 'Reservations', path: '/bookings'},
         {name: 'Order Online', path: '/order-online'},
         {name: 'Login', path: '/login'},
     ];
@@ -31,7 +31,7 @@ const Footer = () => {
         <footer>
             <Box
                 display="grid"
-                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}} // Update this line
+                gridTemplateColumns={{xs: "repeat(1, 1fr)", md: "repeat(12, 1fr)"}}
                 gridAutoRows="310px"
                 alignItems="top"
                 sx={{

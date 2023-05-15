@@ -9,7 +9,7 @@ import Bookings from "./scenes/Bookings";
 
 function App() {
     return (
-        <React.Fragment className="App">
+        <React.Fragment>
             <Nav/>
             <BrowserRouter>
                 <Routes>

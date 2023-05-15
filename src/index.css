@@ -37,22 +37,8 @@ p {
   font-family: Karla;
 }
 
-.image-stack {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  position: relative;
-}
-
-.image-stack_item-top {
-  grid-column: 1 / span 8;
-  grid-row: 1;
-  padding-top: 20%;
-  z-index: 1;
-}
-
-.image-stack_item-bottom {
-  grid-column: 4 / span -1;
-  grid-row: 1;
+.stackedImage {
+  border-radius: 20%;
 }
 
 a:link { text-decoration: none; }
