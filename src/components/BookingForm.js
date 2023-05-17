@@ -85,7 +85,7 @@ const BookingForm = ({availableTimes, updateTimes}) => {
                     gridColumn="span 1"
                     textAlign="center"
                 >
-                    <Header title="Booking" subtitle="Little Lemon Booking Form"/>
+                    <Header title="Reservations" subtitle="Little Lemon Booking Form"/>
                 </Box>
             </Box>
 
