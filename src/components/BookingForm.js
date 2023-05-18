@@ -22,7 +22,7 @@ import Button from "@mui/material/Button";
 import React, {useState} from "react";
 import * as yup from "yup";
 
-const BookingForm = ({availableTimes, updateTimes}) => {
+const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
 
     const marks = [
         {
@@ -60,8 +60,8 @@ const BookingForm = ({availableTimes, updateTimes}) => {
     ];
 
     const handleFormSubmit = async (values, {resetForm}) => {
-        // Call postData and wait for its completion
-        console.log(values);
+        // Submit form
+        submitForm(values)
 
         // Reset the form fields after the submission is complete
         resetForm();
