@@ -8,7 +8,7 @@ import {DatePicker, MobileDateTimePicker} from "@mui/x-date-pickers";
 import {
     Checkbox,
     FormControl,
-    FormControlLabel,
+    FormControlLabel, FormHelperText,
     InputLabel,
     Select,
     Slider,
@@ -25,6 +25,10 @@ import * as yup from "yup";
 const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
 
     const marks = [
+        {
+            value: 0,
+            label: 0,
+        },
         {
             value: 2,
             label: 2,
@@ -93,6 +97,8 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                 onSubmit={handleFormSubmit}
                 initialValues={initialValues}
                 validationSchema={checkoutSchema}
+                validateOnMount={true}
+                validateOnChange={true}
             >
                 {({
                       values,
@@ -101,7 +107,10 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                       handleBlur,
                       handleChange,
                       handleSubmit,
-                      setFieldValue
+                      setFieldValue,
+                      setFieldTouched,
+                      isValid,
+                      isSubmitting
                   }) => (
                     <form onSubmit={handleSubmit}>
                         {/* Booking Information */}
@@ -129,7 +138,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                     gridRow="2"
                                 >
                                     <DatePicker
-                                        label="Date"
+                                        label="Booking Date"
                                         type="date"
                                         onBlur={handleBlur}
                                         onChange={(newValue) => {
@@ -164,24 +173,6 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                         <MenuItem key={time} value={time}>{time}</MenuItem>
                                     ))}
                                 </TextField>
-                                {/*<FormControl fullWidth>*/}
-                                {/*    <InputLabel id="timeLabel">Time</InputLabel>*/}
-                                {/*    <Select*/}
-                                {/*        labelId="timeLabel"*/}
-                                {/*        id="time"*/}
-                                {/*        name="time"*/}
-                                {/*        label="Time"*/}
-                                {/*        onBlur={handleBlur}*/}
-                                {/*        onChange={handleChange && console.log(values.time)}*/}
-                                {/*        value={values.time}*/}
-                                {/*        error={!!touched.time && !!errors.time}*/}
-                                {/*        helperText={touched.time && errors.time}*/}
-                                {/*    >*/}
-                                {/*        <MenuItem value={10}>Ten</MenuItem>*/}
-                                {/*        <MenuItem value={20}>Twenty</MenuItem>*/}
-                                {/*        <MenuItem value={30}>Thirty</MenuItem>*/}
-                                {/*    </Select>*/}
-                                {/*</FormControl>*/}
                             </Box>
                             <Box
                                 position="relative"
@@ -202,15 +193,22 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                     label="Number of Guests"
                                     type="number"
                                     onBlur={handleBlur}
-                                    onChange={handleChange}
+                                    // onChange={handleChange}
+                                    onChange={(event, newValue) => {
+                                        setFieldValue('numberOfGuests', newValue);
+                                        setFieldTouched('numberOfGuests', true, false); // Mark the field as touched when the slider changes
+                                    }}
                                     value={values.numberOfGuests}
                                     name="numberOfGuests"
                                     valueLabelDisplay="auto"
                                     step={2}
                                     marks={marks}
-                                    min={2}
+                                    min={0}
                                     max={16}
                                 />
+                                {touched.numberOfGuests && errors.numberOfGuests ? (
+                                    <FormHelperText error>{errors.numberOfGuests}</FormHelperText>
+                                ) : null}
                             </Box>
                             <Box
                                 gridColumn="span 6"
@@ -325,6 +323,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                             <Button
                                 variant="contained"
                                 type="submit"
+                                disabled={!isValid || isSubmitting}
                                 sx={{
                                     borderRadius: "16px",
                                     color: "#333333",
@@ -344,24 +343,28 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
     )
 }
 const checkoutSchema = yup.object().shape({
-    bookingDate: yup.string().required("required"),
-    bookingTime: yup.string().required("required"),
-    first_name: yup.string().required("required"),
-    last_name: yup.string().required("required"),
+    bookingDate: yup.date().required("Date Required"),
+    bookingTime: yup.string().required("Time Required"),
+    numberOfGuests: yup.number()
+        .min(2, 'Must be at least 2')
+        .max(16, 'Must be no more than 16')
+        .required('Number Required'),
+    first_name: yup.string().required("First Name Required"),
+    last_name: yup.string().required("Last Name Required"),
     number: yup
         .string()
         .matches(
             /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/,
             "Phone number is not valid"
         )
-        .required("required"),
-    email: yup.string().email("invalid email").required("required"),
+        .required("Phone number Required"),
+    email: yup.string().email("invalid email").required("Email Required"),
 
 });
 const initialValues = {
-    bookingDate: "",
+    bookingDate: new Date(),
     bookingTime: "",
-    numberOfGuests: 2,
+    numberOfGuests: 0,
     smoking: false,
     first_name: "",
     last_name: "",
