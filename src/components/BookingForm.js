@@ -4,7 +4,7 @@ import {Formik} from "formik";
 import SubHeader from "./SubHeader";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
-import {DatePicker, MobileDateTimePicker} from "@mui/x-date-pickers";
+import {DatePicker} from "@mui/x-date-pickers";
 import {
     Checkbox,
     FormControl,
@@ -21,6 +21,7 @@ import restaurantChefB from "../assets/restaurant chef B.jpg";
 import Button from "@mui/material/Button";
 import React, {useState} from "react";
 import * as yup from "yup";
+import dayjs from "dayjs";
 
 const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
 
@@ -138,13 +139,16 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                     gridRow="2"
                                 >
                                     <DatePicker
+                                        disablePast
                                         label="Booking Date"
                                         type="date"
                                         onBlur={handleBlur}
                                         onChange={(newValue) => {
                                             if (newValue !== null) {
-                                                setFieldValue('bookingDate', newValue.$d);
-                                                updateTimes(newValue.$d);
+                                                const newDate = dayjs(newValue.$d).startOf('day')
+                                                setFieldValue('bookingDate', newDate);
+                                                updateTimes(newDate.toDate());
+                                                console.log(errors.bookingDate)
                                             }
                                         }}
                                         value={values.bookingDate}
@@ -152,6 +156,9 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                         error={!!touched.bookingDate && !!errors.bookingDate}
                                         helperText={touched.bookingDate && errors.bookingDate}
                                     />
+                                    {errors.bookingDate ? (
+                                        <FormHelperText error>{errors.bookingDate}</FormHelperText>
+                                    ) : null}
                                 </Box>
                             </LocalizationProvider>
                             <Box
@@ -162,7 +169,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                     fullWidth
                                     name="bookingTime"
                                     select
-                                    label="Time"
+                                    label="Booking Time"
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     value={values.bookingTime}
@@ -190,6 +197,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                     Number of Guests
                                 </Typography>
                                 <Slider
+                                    data-testid="numberOfGuests-slider"
                                     label="Number of Guests"
                                     type="number"
                                     onBlur={handleBlur}
@@ -342,8 +350,12 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
         </section>
     )
 }
+const today = dayjs().startOf('day')
 const checkoutSchema = yup.object().shape({
-    bookingDate: yup.date().required("Date Required"),
+    bookingDate: yup.date()
+        .typeError("Needs to be a date.")
+        .min(today, "Date cannot be in the past")
+        .required("Date Required"),
     bookingTime: yup.string().required("Time Required"),
     numberOfGuests: yup.number()
         .min(2, 'Must be at least 2')
@@ -362,7 +374,7 @@ const checkoutSchema = yup.object().shape({
 
 });
 const initialValues = {
-    bookingDate: new Date(),
+    bookingDate: dayjs(),
     bookingTime: "",
     numberOfGuests: 0,
     smoking: false,
