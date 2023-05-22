@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import {Box, Button, Typography} from "@mui/material";
-import restauranfood from "../assets/restauranfood.jpg"
+import {Box, Typography} from "@mui/material";
 import marioAdrianA from "../assets/Mario and Adrian A.jpg"
 import marioAdrianB from "../assets/Mario and Adrian b.jpg"
 
@@ -45,6 +44,7 @@ const About = () => {
                         className="stackedImage"
                         src={marioAdrianA}
                         width="440px"
+                        alt="Marian and Adrian"
                     />
                     {/* Top Image*/}
                     <img
@@ -55,6 +55,7 @@ const About = () => {
                             position: "relative",
                             transform: "translate(-50%, -75%)"
                         }}
+                        alt="Mario and Adrian"
                     />
                 </Box>
             </Box>

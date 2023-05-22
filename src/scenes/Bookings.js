@@ -1,4 +1,4 @@
-import {useReducer, useState, useEffect} from "react";
+import {useReducer, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import BookingForm from "../components/BookingForm";
 import AvailableTimesReducer from "../components/AvailableTimesReducer";

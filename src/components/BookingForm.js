@@ -7,10 +7,7 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {DatePicker} from "@mui/x-date-pickers";
 import {
     Checkbox,
-    FormControl,
     FormControlLabel, FormHelperText,
-    InputLabel,
-    Select,
     Slider,
     TextField,
     Typography
@@ -19,7 +16,7 @@ import MenuItem from "@mui/material/MenuItem";
 import restaurant from "../assets/restaurant.jpg";
 import restaurantChefB from "../assets/restaurant chef B.jpg";
 import Button from "@mui/material/Button";
-import React, {useState} from "react";
+import React from "react";
 import * as yup from "yup";
 import dayjs from "dayjs";
 
@@ -186,7 +183,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                 gridColumn="span 6"
                                 gridRow={{xs: "6", md: "2 / 5"}} // Allows Image to span 4 rows
                             >
-                                <img src={restaurant} width="500px"/>
+                                <img src={restaurant} width="500px" alt="Restaurant"/>
                             </Box>
                             <Box
                                 gridColumn="span 6"
@@ -272,7 +269,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                                 gridColumn="span 6"
                                 gridRow={{xs: "6", md: "2 / 5"}} // Allows Image to span 4 rows
                             >
-                                <img src={restaurantChefB} width="500px"/>
+                                <img src={restaurantChefB} width="500px" alt="Chef"/>
                             </Box>
                             <Box
                                 gridColumn="span 6"
@@ -331,6 +328,7 @@ const BookingForm = ({availableTimes, updateTimes, submitForm}) => {
                             <Button
                                 variant="contained"
                                 type="submit"
+                                aria-label="On Click"
                                 disabled={!isValid || isSubmitting}
                                 sx={{
                                     borderRadius: "16px",

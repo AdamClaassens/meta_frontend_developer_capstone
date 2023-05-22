@@ -93,7 +93,7 @@ function ResponsiveAppBar() {
                                     textDecoration: 'none',
                                 }}
                             >
-                                <img src={logo} width="150px"/>
+                                <img src={logo} width="150px" alt="Logo"/>
                             </Typography>
                             {pages.map((page) => (
                                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        <img src={logo} width="150px"/>
+                        <img src={logo} width="150px" alt="Logo"/>
                     </Typography>
                     <Box
                         sx={{
@@ -142,7 +142,7 @@ function ResponsiveAppBar() {
                                 textDecoration: 'none',
                             }}
                         >
-                            <img src={logo} width="150px"/>
+                            <img src={logo} width="150px" alt="Logo"/>
                         </Typography>
                         {pages.map((page) => (
                             <Button

@@ -84,7 +84,7 @@ const Specials = () => {
                                 Order Delivery
                             </Typography>
                             <IconButton aria-label="order">
-                                <img src={basket} width="20px"/>
+                                <img src={basket} width="20px" alt="Basket Icon"/>
                             </IconButton>
                         </CardActions>
                     </Card>
@@ -114,7 +114,7 @@ const Specials = () => {
                                 Order Delivery
                             </Typography>
                             <IconButton aria-label="order">
-                                <img src={basket} width="20px"/>
+                                <img src={basket} width="20px" alt="Basket Icon"/>
                             </IconButton>
                         </CardActions>
                     </Card>
@@ -144,7 +144,7 @@ const Specials = () => {
                                 Order Delivery
                             </Typography>
                             <IconButton aria-label="order">
-                                <img src={basket} width="20px"/>
+                                <img src={basket} width="20px" alt="Basket Icon"/>
                             </IconButton>
                         </CardActions>
                     </Card>

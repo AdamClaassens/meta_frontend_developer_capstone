@@ -35,6 +35,7 @@ const Hero = () => {
                     >
                         <Button
                             variant="contained"
+                            aria-label="On Click"
                             sx={{
                                 borderRadius: "16px",
                                 color: "#333333",
@@ -54,7 +55,7 @@ const Hero = () => {
                     gridColumn="span 2"
                     mb="30px"
                 >
-                    <img src={restaurant} width="500px"/>
+                    <img src={restaurant} width="500px" alt="Restaurant"/>
                 </Box>
             </Box>
         </article>

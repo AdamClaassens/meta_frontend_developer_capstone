@@ -44,7 +44,7 @@ const Footer = () => {
                 <Box
                     gridColumn="span 3"
                 >
-                    <img src={restauranfood} width="200px"/>
+                    <img src={restauranfood} width="200px" alt="Food"/>
                 </Box>
                 <Box
                     gridColumn="span 3"

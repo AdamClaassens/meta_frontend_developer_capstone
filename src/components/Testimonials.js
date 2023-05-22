@@ -2,19 +2,12 @@ import React from "react";
 import {
     Avatar,
     Box,
-    Button,
     Card,
-    CardActions,
     CardContent,
     CardHeader,
-    CardMedia,
-    IconButton, Rating,
+    Rating,
     Typography
 } from "@mui/material";
-import greekSalad from "../assets/greek salad.jpg";
-import bruchetta from "../assets/bruchetta.png";
-import lemonDessert from "../assets/lemon dessert.jpg";
-import basket from "../assets/Basket.svg";
 import SubHeader from "./SubHeader";
 
 const Testimonials = () => {
